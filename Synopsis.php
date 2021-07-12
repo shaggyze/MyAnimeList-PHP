@@ -57,7 +57,7 @@ print "<br>";
 }
 if (isset($_GET['Template'])) {
 	$Template = ($_GET['Template']);
-    print "Your Template is #$Template which I will be need to create your CSS file. <br>";
+    print "Your Template is #$Template which I will need to create your CSS file. <br>";
 
 	if (strpos($Template, '[ID]') !== false) {
 		if (strpos($Template, '[DESC]') !== false) {
