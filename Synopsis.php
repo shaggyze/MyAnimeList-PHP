@@ -11,38 +11,45 @@ for ($x = 0; $x <= 50000 ; $x+=300) {
 	//print $someJSON;
 	$someArray = json_decode($someJSON, true);
 	if ($someArray[1]["anime_id"] == ""){break;}
-	print "Gathering offset " . $x . " anime_id's <br>";
+	//print "Gathering offset " . $x . " anime_id's <br>";
 	
 	foreach($someArray as $myarray) {
 		$var = $myarray["anime_id"];
-		print $var.', ';
+		//print $var.', ';
 		$array[$i] = array($i => $var);
-		//var_dump($array);
 		$i++;
 	}
-	print "<br>";
+	//print "<br>";
 }
 $url2 = "Anime_Synopsis.json";
 $someJSON2 = file_get_contents($url2);
 //print $someJSON2;
 $someArray2 = json_decode($someJSON2, true);
-print "Gathering Anime_Synopsis.json synopsis <br>";
+print "Gathering anime_id's <br>";
+$i = 0;
+foreach ($array as $myarray1) {
+	print_r ($myarray1[$i].', ');
+	$i++;
+}
+
+print "<br>Gathering Anime_Synopsis.json synopsis <br>";
 print_r ($someArray2[0][1]);
+print_r ($someArray2[1][5]);
 //print_r ($array);
 
 //foreach($someArray2 as $myarray2) {
-foreach($array as $myarray3) {
+	//foreach($array as $myarray3) {
 
 		//if ($myarray2[$myarray3] == ""){
 		//}else{
 			//if (!$myarray2[$myarray3] == ""){
-				$var2 = $myarray2[$myarray3];
-				print ($var2).', ';
+				//$var2 = $myarray2[$myarray3];
+				//print ($var2).', ';
 			//	unset($array[$myarray3]);
 			//	break;
 			//}
 		//}
-	}
+	//}
 //}
 print "<br>";
 } else {
@@ -64,4 +71,5 @@ if (isset($_GET['Template'])) {
 } else {
     print "No Template. <br>";
 }
+print "If anyone would like to help me with this project the source is available at <a target=blank href=https://github.com/shaggyze/MyAnimeList-PHP>https://github.com/shaggyze/MyAnimeList-PHP</a><br>";
 ?>
