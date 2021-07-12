@@ -12,7 +12,6 @@ for ($x = 0; $x <= 50000 ; $x+=300) {
 	$someArray = json_decode($someJSON, true);
 	if ($someArray[1]["anime_id"] == ""){break;}
 	//print "Gathering offset " . $x . " anime_id's <br>";
-	
 	foreach($someArray as $myarray) {
 		$var = $myarray["anime_id"];
 		//print $var.', ';
@@ -21,36 +20,40 @@ for ($x = 0; $x <= 50000 ; $x+=300) {
 	}
 	//print "<br>";
 }
-$url2 = "Anime_Synopsis.json";
-$someJSON2 = file_get_contents($url2);
-//print $someJSON2;
-$someArray2 = json_decode($someJSON2, true);
 print "Gathering anime_id's <br>";
 $i = 0;
 foreach ($array as $myarray1) {
 	print_r ($myarray1[$i].', ');
 	$i++;
 }
-
+$url2 = "Anime_Synopsis.json";
+$someJSON2 = file_get_contents($url2);
+print $someJSON2;
+$someArray2 = json_decode($someJSON2, True);
 print "<br>Gathering Anime_Synopsis.json synopsis <br>";
-print_r ($someArray2[0][1]);
-print_r ($someArray2[1][5]);
-//print_r ($array);
-
-//foreach($someArray2 as $myarray2) {
-	//foreach($array as $myarray3) {
-
-		//if ($myarray2[$myarray3] == ""){
-		//}else{
-			//if (!$myarray2[$myarray3] == ""){
-				//$var2 = $myarray2[$myarray3];
-				//print ($var2).', ';
-			//	unset($array[$myarray3]);
+print_r (($someArray2[0][1]).'<br>');
+print_r (($someArray2[1][5]).'<br>');
+print_r (($someArray2[1]).'<br>');
+for ($i2 = 0; $i2 <= 3 ; $i2+=1) {
+$i = 0;
+print_r ('#'.($i2).'<br>');
+	foreach($array as $myarray3) {
+		print_r (($i).'<br>');
+		print_r (($myarray3[$i2]).'<br>');
+		print_r (($someArray2[$i2][$myarray3[$i]]).'<br>');
+		print_r (($someArray2[$i2][$myarray3[$i]]).'<br>');
+		if ($myarray2[$i][$myarray3[$i]] == ""){
+		}else{
+			if (!$myarray2[$i][$myarray3[$i]] == ""){
+			//	$var2 = $myarray2[$i][$myarray3[$i]];
+			//	print ($var2).', ';
+			//	unset($myarray2[$i][$myarray3[$i]]);
 			//	break;
-			//}
-		//}
-	//}
-//}
+			}
+		}
+	$i++;
+	}
+}
 print "<br>";
 } else {
     print "No Username. <br>";
